@@ -1,7 +1,7 @@
 <template>
   <div>
     <App-Bar>
-      <AppBarSpacer :width="2" />
+      <AppBarSpacer :width="6" />
 
       <AppBarSection>
         <KButton :fill-mode="'flat'">
