@@ -6,3 +6,9 @@
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
 }
+
+.header-text {
+  font-size: 18px;
+  color: #003366;
+  font-weight: bold;
+}
