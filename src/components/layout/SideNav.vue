@@ -3,7 +3,7 @@
           ...item,
           selected: index === 1, // explicit 1
         }))"
-    position="start" mode="push" mini="true" :expanded="false">
+    position="start" :mode="'push'" :mini="true" :expanded="false">
     <DrawerContent>
       <slot></slot>
     </DrawerContent>
@@ -71,6 +71,8 @@ export default SideNav;
 }
 
 .k-drawer-content {
-  min-height: calc(100vh - 48px);
+  height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
 }
 </style>
