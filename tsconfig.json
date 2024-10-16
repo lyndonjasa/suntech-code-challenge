@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "references": [],
+  "include": [
+    "./.dot/**/*.vue",
+    "./dot/**/*.vue",
+    "./src/**/*.vue"
+  ]
+}
