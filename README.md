@@ -20,6 +20,12 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
+## Add Kendo License
+
+```sh
+npx kendo-ui-license activate
+```
+
 ### Compile and Hot-Reload for Development
 
 ```sh
