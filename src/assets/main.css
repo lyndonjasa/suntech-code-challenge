@@ -18,11 +18,11 @@
   color: white;
 }
 
-.k-button:hover:not(.k-disabled) {
+.primary-button:hover:not(.k-disabled) {
   background-color: #002a54;
 }
 
-.k-button.k-disabled {
+.primary-button.k-disabled {
   background-color: #ced2da;
   color: #939dac;
 }

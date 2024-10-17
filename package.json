@@ -27,6 +27,7 @@
     "@progress/kendo-vue-indicators": "^5.2.0",
     "@progress/kendo-vue-inputs": "^5.2.0",
     "@progress/kendo-vue-intl": "^5.2.0",
+    "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
     "code-challenge": "file:",
     "lodash": "^4.17.21",
