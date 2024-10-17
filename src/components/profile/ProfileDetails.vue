@@ -7,13 +7,7 @@
       <CardBody>This is the personal information you use to access and manage your account. Your email address will be used for account security, recovery, and notifications.</CardBody>
     </Card>
 
-    <Card style="margin: 20px 0;" :type="'error'" v-if="!isFormValid">
-      <CardBody>
-        <ul id="error-list">
-          <li v-for="error in errors">{{ error }}</li>
-        </ul>
-      </CardBody>
-    </Card>
+    <ErrorCard :errors="errors" v-if="!isFormValid" />
 
     <Card>
       <CardBody>
@@ -41,6 +35,7 @@ import { arrowRightIcon } from '@progress/kendo-svg-icons';
 import { SvgIcon } from '@progress/kendo-vue-common';
 import ProfileDetailsForm from './ProfileDetailsForm.vue';
 import Breadcrumbs from '../@shared/Breadcrumbs.vue';
+import ErrorCard from '../@shared/ErrorCard.vue';
 
 const ProfileDetails = defineComponent({
   components: {
@@ -51,7 +46,8 @@ const ProfileDetails = defineComponent({
     KButton,
     SvgIcon,
     ProfileDetailsForm,
-    Breadcrumbs
+    Breadcrumbs,
+    ErrorCard
   },
   setup() {
     const errors = ref<string[]>([]);

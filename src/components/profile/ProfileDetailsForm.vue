@@ -180,13 +180,11 @@ const ProfileDetailsForm = defineComponent({
     
 
     const onFormChange = (event: JsonFormsChangeEvent) => {
-      let isFormValid = event.errors.length === 0;
       formData.value = event.data;
       
       let errors: string[] = [];
       if (event.errors.length > 0) {
         errors = event.errors.map(error => getErrorMessage(error));
-        console.log(errors);
       }
 
       context.emit('form-update', {
