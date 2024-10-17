@@ -13,11 +13,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, watch, shallowRef } from 'vue';
 import { JsonForms, JsonFormsChangeEvent } from '@jsonforms/vue';
 import { createAjv, JsonSchema } from '@jsonforms/core';
 import { vanillaRenderers } from '@jsonforms/vue-vanilla';
 import ajvErrors from 'ajv-errors';
+import * as moment from 'moment';
 
 const ajvInstance = createAjv({ useDefaults: true });
 ajvErrors(ajvInstance);
@@ -35,12 +36,12 @@ const ProfileDetailsForm = defineComponent({
     JsonForms
   },
   setup() {
-    const ajv = ajvInstance;
-    const renderers = [
+    const ajv = shallowRef(ajvInstance);
+    const renderers = shallowRef([
       ...vanillaRenderers
-    ];
+    ]);
 
-    const schema: JsonSchema = {
+    const schema = shallowRef<JsonSchema>({
       type: 'object',
       properties: {
         forename: {
@@ -73,9 +74,9 @@ const ProfileDetailsForm = defineComponent({
         }
       },
       required: ['forename', 'surname', 'email']
-    };
+    });
 
-    const uiSchema = {
+    const uiSchema = shallowRef({
       type: 'VerticalLayout',
       elements: [
         {
@@ -123,12 +124,12 @@ const ProfileDetailsForm = defineComponent({
           type: 'Control',
           scope: '#/properties/age',
           rule: {
-            effect: 'SHOW',
+            effect: 'HIDE',
             condition: {}
           }
         }
       ]
-    };
+    });
 
     const formData = ref<FormData>({
       age: 0,
@@ -137,6 +138,14 @@ const ProfileDetailsForm = defineComponent({
       foreName: undefined,
       lastName: undefined
     });
+
+    watch(() => formData.value.birthDate, (currentValue) => {
+      const now = moment(Date.now());
+      const birthDate = moment(currentValue);
+
+      const ageValue = moment.duration(now.diff(birthDate));
+      formData.value.age = Math.floor(ageValue.asYears());
+    }, { deep: true });
 
     const onFormChange = (event: JsonFormsChangeEvent) => {
       formData.value = event.data;
@@ -155,9 +164,3 @@ const ProfileDetailsForm = defineComponent({
 
 export default ProfileDetailsForm;
 </script>
-
-<style lang="css" scoped>
-#profile-details-form {
-  font-size: 12px;
-}
-</style>
