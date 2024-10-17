@@ -78,7 +78,8 @@ const ProfileDetailsForm = defineComponent({
           }
         },
         age: {
-          type: 'number'
+          type: 'number',
+          minimum: 18
         }
       },
       required: ['forename', 'surname', 'email']
