@@ -1,12 +1,14 @@
 <template>
   <ContentWrapper>
     <div class="header-text" style="margin-top: 30px;">Profile Detail</div>
-    <Card style="width: 100%; padding: 17px; margin: 20px 0;" :type="'info'">
-      This is the personal information you use to access and manage your account. Your email address will be used for account security, recovery, and notifications.
+    <Card style="margin: 20px 0;" :type="'info'">
+      <CardBody>This is the personal information you use to access and manage your account. Your email address will be used for account security, recovery, and notifications.</CardBody>
     </Card>
 
-    <Card style="padding: 17px">
-      <div class="header-text">Details</div>
+    <Card>
+      <CardBody>
+        <CardTitle class="header-text">Details</CardTitle>
+      </CardBody>
     </Card>
 
     <template v-slot:footer>
@@ -22,7 +24,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import ContentWrapper from '../layout/ContentWrapper.vue';
-import { Card } from "@progress/kendo-vue-layout";
+import { Card, CardBody, CardTitle } from "@progress/kendo-vue-layout";
 import { Button as KButton } from "@progress/kendo-vue-buttons";
 import { arrowRightIcon } from '@progress/kendo-svg-icons';
 import { SvgIcon } from '@progress/kendo-vue-common';
@@ -31,6 +33,8 @@ const ProfileDetails = defineComponent({
   components: {
     ContentWrapper,
     Card,
+    CardBody,
+    CardTitle,
     KButton,
     SvgIcon
   },
