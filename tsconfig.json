@@ -1,9 +1,19 @@
 {
   "files": [],
-  "references": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ],
   "include": [
     "./.dot/**/*.vue",
     "./dot/**/*.vue",
     "./src/**/*.vue"
-  ]
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true
+  }
 }

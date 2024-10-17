@@ -20,6 +20,7 @@ import { vanillaRenderers } from '@jsonforms/vue-vanilla';
 import ajvErrors from 'ajv-errors';
 import moment from 'moment';
 import { entry as inputRenderer } from '../@shared/jsonform-wrappers/InputWrapper.vue';
+import { entry as datePickerRenderer } from '../@shared/jsonform-wrappers/DatePickerWrapper.vue';
 
 const ajvInstance = createAjv({ useDefaults: true });
 ajvErrors(ajvInstance);
@@ -40,7 +41,8 @@ const ProfileDetailsForm = defineComponent({
     const ajv = shallowRef(ajvInstance);
     const renderers = shallowRef([
       ...vanillaRenderers,
-      inputRenderer
+      inputRenderer,
+      datePickerRenderer
     ]);
 
     const schema = shallowRef<JsonSchema>({
@@ -150,7 +152,7 @@ const ProfileDetailsForm = defineComponent({
     }, { deep: true });
 
     const onFormChange = (event: JsonFormsChangeEvent) => {
-      console.log('fired');
+      console.log(event);
       formData.value = event.data;
     };
 
