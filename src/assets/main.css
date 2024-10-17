@@ -12,3 +12,17 @@
   color: #003366;
   font-weight: bold;
 }
+
+.k-button {
+  background-color: #003366;
+  color: white;
+}
+
+.k-button:hover:not(.k-disabled) {
+  background-color: #002a54;
+}
+
+.k-button.k-disabled {
+  background-color: #ced2da;
+  color: #939dac;
+}

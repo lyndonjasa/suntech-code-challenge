@@ -57,15 +57,8 @@ export default ProfileDetails;
 }
 
 #next-button {
-  background-color: #003366;
-  color: white;
   font-size: 13px;
   padding: 12px 18px;
   border-radius: 1000px;
-}
-
-#next-button.k-disabled {
-  background-color: #ced2da;
-  color: #939dac;
 }
 </style>

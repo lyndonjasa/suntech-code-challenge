@@ -1,6 +1,6 @@
-import './assets/main.css'
 import '@progress/kendo-theme-default/dist/all.css';
 import '@jsonforms/vue-vanilla/vanilla.css';
+import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'

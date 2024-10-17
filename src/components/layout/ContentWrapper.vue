@@ -9,7 +9,7 @@
 
 <style lang="css">
 .content {
-  height: calc(100% - 75px);
+  min-height: calc(100% - 75px);
   width: 100%;
   background-color: #f9fafb;
   padding: 0 200px;

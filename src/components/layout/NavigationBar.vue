@@ -4,7 +4,7 @@
       <AppBarSpacer :width="6" />
 
       <AppBarSection>
-        <KendoButton :fill-mode="'flat'">
+        <KendoButton style="color: black;" :fill-mode="'flat'">
           <SvgIcon :icon="menuIcon" size="small" />
         </KendoButton>
       </AppBarSection>
