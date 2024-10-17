@@ -8,6 +8,7 @@
     <Card>
       <CardBody>
         <CardTitle class="header-text">Details</CardTitle>
+        <ProfileDetailsForm />
       </CardBody>
     </Card>
 
@@ -28,6 +29,7 @@ import { Card, CardBody, CardTitle } from "@progress/kendo-vue-layout";
 import { Button as KButton } from "@progress/kendo-vue-buttons";
 import { arrowRightIcon } from '@progress/kendo-svg-icons';
 import { SvgIcon } from '@progress/kendo-vue-common';
+import ProfileDetailsForm from './ProfileDetailsForm.vue';
 
 const ProfileDetails = defineComponent({
   components: {
@@ -36,7 +38,8 @@ const ProfileDetails = defineComponent({
     CardBody,
     CardTitle,
     KButton,
-    SvgIcon
+    SvgIcon,
+    ProfileDetailsForm
   },
   setup() {
     return {
