@@ -16,7 +16,7 @@
 <script lang="ts">
 import { defineComponent, ref, watch, shallowRef } from 'vue';
 import { JsonForms, JsonFormsChangeEvent } from '@jsonforms/vue';
-import { createAjv, JsonSchema, ErrorTranslator } from '@jsonforms/core';
+import { createAjv, JsonSchema } from '@jsonforms/core';
 import { vanillaRenderers } from '@jsonforms/vue-vanilla';
 import ajvErrors from 'ajv-errors';
 import { ErrorObject } from 'ajv';
@@ -118,7 +118,7 @@ const ProfileDetailsForm = defineComponent({
               type: 'Control',
               scope: '#/properties/email',
               rule: {
-                effect: 'SHOW',
+                effect: 'ENABLE',
                 condition: {
                   scope: '#/properties/age',
                   schema: {

@@ -7,6 +7,11 @@
   width: 100%;
 }
 
+label {
+  color: #3c4550;
+  font-weight: 600;
+}
+
 .header-text {
   font-size: 18px;
   color: #003366;
@@ -25,4 +30,16 @@
 .primary-button.k-disabled {
   background-color: #ced2da;
   color: #939dac;
+}
+
+.k-input {
+  border-color: #9f9fa0;
+}
+
+.k-input::placeholder {
+  color: #9f9fa0;
+}
+
+input.k-disabled {
+  border-color: #eaecef;
 }

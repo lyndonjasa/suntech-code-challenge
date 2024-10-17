@@ -2,7 +2,7 @@
   <div v-if="visible" :id="id" :class="styles.control.root" class="control-wrapper">
     <label
       :for="id + '-input'"
-      :class="[styles.control.label, required ? styles.control.required : '']"
+      :class="[styles.control.label, required ? styles.control.required : '', { 'disabled': disabled }]"
     >
       {{ label }}
       <span v-if="showAsterisk" :class="styles.control.asterisk">*</span>
@@ -70,6 +70,11 @@ export default defineComponent({
       required: false,
       type: Boolean,
       default: false
+    },
+    disabled: {
+      required: false,
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -93,5 +98,9 @@ export default defineComponent({
   margin: 7px;
   color: black;
   font-size: 12px;
+}
+
+.disabled {
+  color: #9f9fa0;
 }
 </style>

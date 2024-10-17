@@ -3,6 +3,7 @@
     v-bind="controlWrapper"
     :showErrors="showErrors"
     :styles="styles"
+    :disabled="!control.enabled"
     :is-focused="isFocused"
     :applied-options="appliedOptions"
   >
@@ -12,7 +13,7 @@
       :value="control.data"
       :disabled="!control.enabled"
       :autofocus="appliedOptions.focus"
-      :placeholder="appliedOptions.placeholder"
+      :placeholder="placeholder"
       @input="onChange"
       @focus="isFocused = true"
       @blur="isFocused = false; showErrors = true">
@@ -60,6 +61,10 @@ const controlRenderer = defineComponent({
       return controlWrapper.value.errors;
     });
 
+    const placeholder = computed((): string => {
+      return 'Type';
+    });
+
     const overrideChange = (event: Event) => {
       showErrors.value = true;
       onChange(event);
@@ -68,6 +73,7 @@ const controlRenderer = defineComponent({
 
     return {
       ...restAttr,
+      placeholder,
       hasErrors,
       controlWrapper,
       onChange: overrideChange,
