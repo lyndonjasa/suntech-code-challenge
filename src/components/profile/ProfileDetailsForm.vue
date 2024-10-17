@@ -72,9 +72,9 @@ const ProfileDetailsForm = defineComponent({
         },
         email: {
           type: 'string',
-          format: 'email',
+          pattern: '^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$',
           errorMessage: {
-            format: 'Please enter a valid Email address'
+            pattern: 'Please enter a valid Email address'
           }
         },
         age: {
