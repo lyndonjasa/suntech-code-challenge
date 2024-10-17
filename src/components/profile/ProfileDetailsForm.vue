@@ -74,7 +74,7 @@ const ProfileDetailsForm = defineComponent({
           type: 'string',
           format: 'email',
           errorMessage: {
-            format: 'Invalid email format'
+            format: 'Please enter a valid Email address'
           }
         },
         age: {
@@ -121,7 +121,7 @@ const ProfileDetailsForm = defineComponent({
                 condition: {
                   scope: '#/properties/age',
                   schema: {
-                    minimum: 19
+                    minimum: 18
                   }
                 }
               }
