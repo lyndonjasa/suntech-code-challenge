@@ -6,8 +6,16 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      redirect: { name: 'profile-detail' }
+    },
+    {
+      path: '/profile/profile-detail',
+      name: 'profile-detail',
       component: ProfileDetail
+    },
+    {
+      path: '/:catchAll(.*)',
+      redirect: '/'
     }
   ]
 })
