@@ -6,11 +6,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: { name: 'profile-detail' }
+      redirect: { name: 'profile-details' }
     },
     {
-      path: '/profile/profile-detail',
-      name: 'profile-detail',
+      path: '/profile/profile-details',
+      name: 'profile-details',
       component: ProfileDetail
     },
     {

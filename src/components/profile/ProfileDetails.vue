@@ -1,6 +1,8 @@
 <template>
   <ContentWrapper>
-    <div class="header-text" style="margin-top: 30px;">Profile Detail</div>
+    <Breadcrumbs />
+
+    <div class="header-text">Profile Detail</div>
     <Card style="margin: 20px 0;" :type="'info'">
       <CardBody>This is the personal information you use to access and manage your account. Your email address will be used for account security, recovery, and notifications.</CardBody>
     </Card>
@@ -30,6 +32,7 @@ import { Button as KButton } from "@progress/kendo-vue-buttons";
 import { arrowRightIcon } from '@progress/kendo-svg-icons';
 import { SvgIcon } from '@progress/kendo-vue-common';
 import ProfileDetailsForm from './ProfileDetailsForm.vue';
+import Breadcrumbs from '../@shared/Breadcrumbs.vue';
 
 const ProfileDetails = defineComponent({
   components: {
@@ -39,7 +42,8 @@ const ProfileDetails = defineComponent({
     CardTitle,
     KButton,
     SvgIcon,
-    ProfileDetailsForm
+    ProfileDetailsForm,
+    Breadcrumbs
   },
   setup() {
     const isFormValid = ref<boolean>(false);
