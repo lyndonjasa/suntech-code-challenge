@@ -79,7 +79,10 @@ const ProfileDetailsForm = defineComponent({
         },
         age: {
           type: 'number',
-          minimum: 18
+          minimum: 18,
+          errorMessage: {
+            minimum: 'Age must be 18 years and above'
+          }
         }
       },
       required: ['forename', 'surname', 'email']
@@ -140,7 +143,7 @@ const ProfileDetailsForm = defineComponent({
       ]
     });
 
-    const showErrorMessage = (error: ErrorObject): string => {
+    const getErrorMessage = (error: ErrorObject): string => {
       try {
         if (error.keyword === 'required') {
           const property = error.params.missingProperty;
@@ -152,6 +155,10 @@ const ProfileDetailsForm = defineComponent({
         console.error(e);
         return error.message;
       }
+    };
+
+    const showErrorMessage = (error: ErrorObject): string => {
+      return getErrorMessage(error);
     }
 
     const formData = ref<FormData>({
@@ -170,13 +177,21 @@ const ProfileDetailsForm = defineComponent({
       formData.value.age = Math.floor(ageValue.asYears());
     }, { deep: true });
 
+    
+
     const onFormChange = (event: JsonFormsChangeEvent) => {
       let isFormValid = event.errors.length === 0;
       formData.value = event.data;
+      
+      let errors: string[] = [];
+      if (event.errors.length > 0) {
+        errors = event.errors.map(error => getErrorMessage(error));
+        console.log(errors);
+      }
 
       context.emit('form-update', {
         ...formData.value,
-        isFormValid
+        errors
       });
     };
 

@@ -7,6 +7,14 @@
       <CardBody>This is the personal information you use to access and manage your account. Your email address will be used for account security, recovery, and notifications.</CardBody>
     </Card>
 
+    <Card style="margin: 20px 0;" :type="'error'" v-if="!isFormValid">
+      <CardBody>
+        <ul id="error-list">
+          <li v-for="error in errors">{{ error }}</li>
+        </ul>
+      </CardBody>
+    </Card>
+
     <Card>
       <CardBody>
         <CardTitle class="header-text">Details</CardTitle>
@@ -25,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 import ContentWrapper from '../layout/ContentWrapper.vue';
 import { Card, CardBody, CardTitle } from "@progress/kendo-vue-layout";
 import { Button as KButton } from "@progress/kendo-vue-buttons";
@@ -46,15 +54,20 @@ const ProfileDetails = defineComponent({
     Breadcrumbs
   },
   setup() {
-    const isFormValid = ref<boolean>(false);
+    const errors = ref<string[]>([]);
     const onFormUpdate = (event: any) => {
-      isFormValid.value = event.isFormValid;
+      errors.value = event.errors
     };
+
+    const isFormValid = computed((): boolean => {
+      return errors.value.length === 0;
+    });
 
     return {
       arrowRightIcon,
       onFormUpdate,
-      isFormValid
+      isFormValid,
+      errors
     }
   }
 });
