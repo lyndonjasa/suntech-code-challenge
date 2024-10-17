@@ -37,7 +37,8 @@ const ProfileDetailsForm = defineComponent({
   components: {
     JsonForms
   },
-  setup() {
+  emits: ['form-update'],
+  setup(_, context) {
     const ajv = shallowRef(ajvInstance);
     const renderers = shallowRef([
       ...vanillaRenderers,
@@ -152,8 +153,13 @@ const ProfileDetailsForm = defineComponent({
     }, { deep: true });
 
     const onFormChange = (event: JsonFormsChangeEvent) => {
-      console.log(event);
+      let isFormValid = event.errors.length === 0;
       formData.value = event.data;
+
+      context.emit('form-update', {
+        ...formData.value,
+        isFormValid
+      });
     };
 
     return {

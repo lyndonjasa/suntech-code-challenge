@@ -63,7 +63,8 @@ const controlRenderer = defineComponent({
 
     const overrideChange = (event: Event) => {
       showErrors.value = true;
-      event.target.value = moment(event.target.value).format('YYYY-MM-DD');
+      // override from date format back to string
+      event.target['value'] = moment(event.target['value']).format('YYYY-MM-DD');
       onChange(event);
     };
 

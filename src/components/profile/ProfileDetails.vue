@@ -8,13 +8,13 @@
     <Card>
       <CardBody>
         <CardTitle class="header-text">Details</CardTitle>
-        <ProfileDetailsForm />
+        <ProfileDetailsForm @form-update="onFormUpdate" />
       </CardBody>
     </Card>
 
     <template v-slot:footer>
       <div class="form-footer">
-        <KButton id="next-button" :disabled="false">
+        <KButton id="next-button" class="primary-button" :disabled="!isFormValid">
           Next <SvgIcon :icon="arrowRightIcon" size="large" />
         </KButton>
       </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import ContentWrapper from '../layout/ContentWrapper.vue';
 import { Card, CardBody, CardTitle } from "@progress/kendo-vue-layout";
 import { Button as KButton } from "@progress/kendo-vue-buttons";
@@ -42,8 +42,15 @@ const ProfileDetails = defineComponent({
     ProfileDetailsForm
   },
   setup() {
+    const isFormValid = ref<boolean>(false);
+    const onFormUpdate = (event: any) => {
+      isFormValid.value = event.isFormValid;
+    };
+
     return {
-      arrowRightIcon
+      arrowRightIcon,
+      onFormUpdate,
+      isFormValid
     }
   }
 });
