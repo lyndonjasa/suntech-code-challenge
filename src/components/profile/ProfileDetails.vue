@@ -9,12 +9,12 @@
 
     <ErrorCard :errors="errors" v-if="!isFormValid" />
 
-    <Card>
-      <CardBody>
-        <CardTitle class="header-text">Details</CardTitle>
-        <ProfileDetailsForm @form-update="onFormUpdate" />
-      </CardBody>
-    </Card>
+    <ExpandableCard>
+      <template #header>
+        <span class="header-text">Details</span>
+      </template>
+      <ProfileDetailsForm @form-update="onFormUpdate" />
+    </ExpandableCard>
 
     <template v-slot:footer>
       <div class="form-footer">
@@ -36,6 +36,7 @@ import { SvgIcon } from '@progress/kendo-vue-common';
 import ProfileDetailsForm from './ProfileDetailsForm.vue';
 import Breadcrumbs from '../@shared/Breadcrumbs.vue';
 import ErrorCard from '../@shared/ErrorCard.vue';
+import ExpandableCard from '../@shared/ExpandableCard.vue';
 
 const ProfileDetails = defineComponent({
   components: {
@@ -47,7 +48,8 @@ const ProfileDetails = defineComponent({
     SvgIcon,
     ProfileDetailsForm,
     Breadcrumbs,
-    ErrorCard
+    ErrorCard,
+    ExpandableCard
   },
   setup() {
     const errors = ref<string[]>([]);

@@ -32,6 +32,14 @@ label {
   color: #939dac;
 }
 
+.primary-text {
+  color: 003366;
+}
+
+.primary-text:hover:not(.k-disabled) {
+  color: #002a54;
+}
+
 .k-input {
   border-color: #9f9fa0;
 }
