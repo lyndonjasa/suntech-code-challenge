@@ -50,7 +50,7 @@ export default Breadcrumbs;
 
 <style lang="css" scoped>
 #breadcrumbs-container {
-  margin: 20px 0;
+  padding: 20px 0;
   width: 100%;
   display: flex;
   align-items: center;

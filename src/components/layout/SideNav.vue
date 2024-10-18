@@ -70,9 +70,11 @@ export default SideNav;
   border-radius: 100px;
 }
 
-.k-drawer-content {
+.k-drawer-container {
   height: calc(100vh - 48px);
-  display: flex;
-  flex-direction: column;
+}
+
+.k-drawer-content {
+  height: 100%;
 }
 </style>
